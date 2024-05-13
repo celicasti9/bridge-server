@@ -53,9 +53,13 @@ app.use(express.urlencoded({ extended: false }));
 app.set('trust proxy', 1);
 app.enable('trust proxy');
 
+console.log('CORS is set for: ', process.env.REACT_APP_URI);
 app.use(
     cors({
-      origin: ['*', ]  // <== URL of our future React app, process.env.REACT_APP_URI is the correct URI
+      origin: [process.env.REACT_APP_URI, 'https://bridge-client-omega.vercel.app', 'eslaconeradio.com'],  // <== URL of our future React app
+      credentials: true, // if your frontend needs to send cookies or authorization headers
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      allowedHeaders: ['Content-Type', 'Authorization']
     })
   );
 
