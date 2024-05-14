@@ -83,8 +83,6 @@ let userName
 
     console.log("This is the destination and email from main function", destination, userName, token)
 
-    const resetLink = `http://bridge-client-omega.vercel.app/reset-password?token=${token}`;
-
     let html = `
     <body>
     <div class="email-wrapper">
@@ -94,7 +92,7 @@ let userName
       <div class="email-body">
         <p>Dear ${userName},</p>
         <p>You have requested to reset your password. Please follow the link below to set a new password:</p>
-        <p><a href="${resetLink}">Reset Password</a></p>
+        <p><a href="http://bridge-client-omega.vercel.app/reset-password?token=[${token}]">Reset Password</a></p>
         <p>If you did not request a password reset, please ignore this email.</p>
         <p>Best regards,<br>Bridge Security Services</p>
         <p>Please click this link within the next 5 minutes.</p>
