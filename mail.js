@@ -59,7 +59,7 @@ let userName
 
   }
 
-  async function main(destination, userName, email) {
+  async function main(destination, userName) {
 
     let configs = await TransporterConfig.find()
     let thisConfig = configs[0]
@@ -87,7 +87,7 @@ let userName
       <div class="email-body">
         <p>Dear ${userName},</p>
         <p>You have requested to reset your password. Please follow the link below to set a new password:</p>
-        <p><a href="http://bridge-client-omega.vercel.app/reset-password?token=[${email}]">Reset Password</a></p>
+        <p><a href="http://bridge-client-omega.vercel.app/reset-password?token=[${destination}]">Reset Password</a></p>
         <p>If you did not request a password reset, please ignore this email.</p>
         <p>Best regards,<br>Bridge Security Services</p>
         <p>Please click this link within the next 5 minutes.</p>
