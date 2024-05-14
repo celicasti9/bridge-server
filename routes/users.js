@@ -72,32 +72,5 @@ router.post('/lost-password', async(req, res, next) => {
 
 })
 
-router.put('/reset-password/:token', async (req, res, next) => {
-  try {
-    const { password } = req.body;
-
-    let newPassword
-
-    if (password) {
-      newPassword = await bcrypt.hash(password, 10);
-    }
-    // Update the user with the hashed password
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.userId,
-      { password: newPassword }, // Use the hashed password
-      { new: true }
-    );
-
-    if (!updatedUser) {
-      throw new Error("User not found");
-    }
-
-    console.log("Updated password for User ===>", updatedUser);
-    res.json(updatedUser);
-  } catch (error) {
-    console.log("Error updating user password ===>", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
 
 module.exports = router;
