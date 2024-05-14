@@ -76,7 +76,7 @@ let userName
       }
     })
 
-    console.log("This is the destination and email from main function", destination, userName, token)
+    console.log("This is the destination and email from main function", destination, userName)
 
     let html = `
     <body>
