@@ -100,21 +100,6 @@ router.put('/reset-password', async (req, res, next) => {
   }
 });
 
-app.post('/reset-password', async (req, res) => {
-  const { token, newPassword } = req.body;
-  // Validate token and check if not expired
-  const user = await findUserByResetToken(token);
-  if (!user || user.resetPasswordExpires < Date.now()) {
-    return res.status(400).send('Token is invalid or has expired.');
-  }
-
-  // Assuming you have a function to hash passwords
-  const hashedPassword = await bcrypt.hash(newPassword, 10);
-  await updateUserPassword(user._id, hashedPassword);
-  await clearResetToken(user._id);
-
-  res.send('Password has been reset.');
-});
 
 
 module.exports = router;
