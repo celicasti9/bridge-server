@@ -72,7 +72,7 @@ router.post('/lost-password', async(req, res, next) => {
 
 })
 
-router.put('/reset-password/:token', async (req, res, next) => {
+router.put('/reset-password/:email', async (req, res, next) => {
   try {
     const { password } = req.body;
 
