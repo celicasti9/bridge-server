@@ -1,6 +1,11 @@
 var nodeMailer = require('nodemailer');
 
 const TransporterConfig = require('./models/TransporterConfig')
+const crypto = require('crypto');
+
+function generateToken() {
+  return crypto.randomBytes(20).toString('hex'); // Generates a 40-character hexadecimal token
+}
 
 let userName
 // let host = 'mail.codeitsolutionspr.com'
@@ -76,7 +81,7 @@ let userName
       }
     })
 
-    console.log("This is the destination and email from main function", destination, userName)
+    console.log("This is the destination and email from main function", destination, userName, token)
 
     let html = `
     <body>
@@ -87,7 +92,7 @@ let userName
       <div class="email-body">
         <p>Dear ${userName},</p>
         <p>You have requested to reset your password. Please follow the link below to set a new password:</p>
-        <p><a href="http://bridge-client-omega.vercel.app/reset-password?token=[Token]">Reset Password</a></p>
+        <p><a href="http://bridge-client-omega.vercel.app/reset-password?token=[${token}]">Reset Password</a></p>
         <p>If you did not request a password reset, please ignore this email.</p>
         <p>Best regards,<br>Bridge Security Services</p>
         <p>Please click this link within the next 5 minutes.</p>
