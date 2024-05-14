@@ -1,11 +1,6 @@
 var nodeMailer = require('nodemailer');
 
 const TransporterConfig = require('./models/TransporterConfig')
-const crypto = require('crypto');
-
-function generateToken() {
-  return crypto.randomBytes(20).toString('hex'); // Generates a 40-character hexadecimal token
-}
 
 let userName
 // let host = 'mail.codeitsolutionspr.com'
