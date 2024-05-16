@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    allowed_formats: ["jpg", "jpeg", "png", 'webp', 'HEIC'],
+    allowed_formats: ["jpg", "jpeg", "png", 'webp', 'HEIC', 'pdf'],
     folder: "bridge-security-expenses" 
   }
 });

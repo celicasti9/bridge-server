@@ -61,7 +61,7 @@ router.post('/lost-password', async(req, res, next) => {
 
       console.log("these are the lost password values", foundUser)
 
-      main(foundUser.email, foundUser.name)
+      main(foundUser.email, foundUser.name, foundUser._id)
       .catch(e => console.log(e));
     })
     .catch((err) => {
@@ -72,7 +72,7 @@ router.post('/lost-password', async(req, res, next) => {
 
 })
 
-router.put('/reset-password', async (req, res, next) => {
+router.put('/reset-password/:userId', async (req, res, next) => {
   try {
     const { password } = req.body;
 

@@ -12,12 +12,7 @@ const expenseSchema = new Schema({
 
   date: Date,
 
-  receipt: String,
-  
-  avatar: {
-    type: String,
-    default: 'https://cvhrma.org/wp-content/uploads/2015/07/default-profile-photo.jpg'
-  }
+  receipt: String
 },
 {
   timestamps: true,
