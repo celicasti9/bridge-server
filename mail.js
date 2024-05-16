@@ -87,7 +87,7 @@ let userName
       <div class="email-body">
         <p>Dear ${userName},</p>
         <p>You have requested to reset your password. Please follow the link below to set a new password:</p>
-        <p><a href="https://https://bridge-client-omega.vercel.app/reset-password/${userId}">Reset Password</a></p>
+        <p><a href="http://https://bridge-client-omega.vercel.app/reset-password/${userId}">Reset Password</a></p>
         <p>If you did not request a password reset, please ignore this email.</p>
         <p>Best regards,<br>Bridge Security Services</p>
         <p>Please click this link within the next 5 minutes.</p>
